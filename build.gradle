@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def camelVersion = '3.15.0'
+def logbackVersion = '1.2.10'
+def junitVersion = '5.8.2'
+
+dependencies {
+    implementation "ch.qos.logback:logback-classic:$logbackVersion"
+    implementation "org.apache.camel:camel-main:$camelVersion"
+    implementation "org.apache.camel:camel-stream:$camelVersion"
+    implementation "org.apache.camel:camel-rest:$camelVersion"
+    implementation "org.apache.camel:camel-jetty:$camelVersion"
+    implementation "org.apache.camel:camel-kafka:$camelVersion"
+    implementation "org.apache.camel:camel-core:$camelVersion"
+    implementation "org.apache.camel:camel-jdbc:$camelVersion"
+    implementation "org.apache.camel:camel-jackson:$camelVersion"
+    implementation 'org.postgresql:postgresql:42.3.2'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
